@@ -51,4 +51,7 @@ Para ejecutar el proyecto localmente, sigue estos pasos:
 
 ## 📜 Licencia
 
-Este proyecto está bajo la licencia que el autor decida aplicar. Desarrollado con enfoque en alto rendimiento visual y funcional.
+Este proyecto está bajo la **Licencia MIT**. Siéntete libre de descargar, modificar y usar este código para tus propios proyectos. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+Desarrollado con enfoque en alto rendimiento visual y funcional.
