@@ -1,0 +1,9 @@
+@echo off
+cd app
+echo Checking dependencies...
+if not exist "node_modules" (
+    echo Installing dependencies...
+    call npm install
+)
+echo Starting NoporSearch...
+call npm run dev
