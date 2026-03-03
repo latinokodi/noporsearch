@@ -1,9 +1,1 @@
-"use strict";
-const electron = require("electron");
-electron.contextBridge.exposeInMainWorld("electronAPI", {
-  loadSites: () => electron.ipcRenderer.invoke("load-sites"),
-  saveSites: (sites) => electron.ipcRenderer.invoke("save-sites", sites),
-  openUrl: (url, browserPath) => electron.ipcRenderer.invoke("open-url", url, browserPath),
-  loadLegacySites: () => electron.ipcRenderer.invoke("load-legacy-sites"),
-  getBrowsers: () => electron.ipcRenderer.invoke("get-browsers")
-});
+"use strict";const e=require("electron");e.contextBridge.exposeInMainWorld("electronAPI",{loadSites:()=>e.ipcRenderer.invoke("load-sites"),saveSites:r=>e.ipcRenderer.invoke("save-sites",r),openUrl:(r,i)=>e.ipcRenderer.invoke("open-url",r,i),loadLegacySites:()=>e.ipcRenderer.invoke("load-legacy-sites"),getBrowsers:()=>e.ipcRenderer.invoke("get-browsers")});

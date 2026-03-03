@@ -44,7 +44,7 @@ function createWindow() {
     if (process.env.VITE_DEV_SERVER_URL) {
         win.loadURL(process.env.VITE_DEV_SERVER_URL)
     } else {
-        win.loadFile(path.join(process.env.DIST, 'index.html'))
+        win.loadFile(path.join(process.env.DIST || '', 'index.html'))
     }
 }
 
@@ -102,8 +102,19 @@ function getBrowserPaths(): string[] {
             path.join(programFilesX86, "Vivaldi", "Application", "vivaldi.exe"),
         ]
         paths.push(...candidates)
-    } else {
-        // Basic linux support could be added here, but for now relying on system default
+    } else if (process.platform === 'linux') {
+        const candidates = [
+            "/usr/bin/google-chrome",
+            "/usr/bin/google-chrome-stable",
+            "/usr/bin/firefox",
+            "/usr/bin/brave-browser",
+            "/usr/bin/opera",
+            "/usr/bin/vivaldi",
+            "/usr/bin/microsoft-edge",
+            "/usr/bin/chromium",
+            "/usr/bin/chromium-browser"
+        ]
+        paths.push(...candidates)
     }
     return paths
 }
@@ -117,12 +128,13 @@ function detectBrowsers() {
             seenPaths.add(p)
             const base = path.basename(p).toLowerCase()
             let name = base
-            if (base === 'msedge.exe') name = 'Microsoft Edge'
-            else if (base === 'chrome.exe') name = 'Google Chrome'
-            else if (base === 'firefox.exe') name = 'Mozilla Firefox'
-            else if (base === 'brave.exe') name = 'Brave'
-            else if (base === 'opera.exe') name = p.toLowerCase().includes('gx') ? 'Opera GX' : 'Opera'
-            else if (base === 'vivaldi.exe') name = 'Vivaldi'
+            if (base === 'msedge.exe' || base === 'microsoft-edge') name = 'Microsoft Edge'
+            else if (base === 'chrome.exe' || base === 'google-chrome' || base === 'google-chrome-stable') name = 'Google Chrome'
+            else if (base === 'firefox.exe' || base === 'firefox') name = 'Mozilla Firefox'
+            else if (base === 'brave.exe' || base === 'brave-browser') name = 'Brave'
+            else if (base === 'opera.exe' || base === 'opera') name = p.toLowerCase().includes('gx') ? 'Opera GX' : 'Opera'
+            else if (base === 'vivaldi.exe' || base === 'vivaldi') name = 'Vivaldi'
+            else if (base === 'chromium' || base === 'chromium-browser') name = 'Chromium'
 
             browsers.push({ name, path: p })
         }
@@ -144,10 +156,10 @@ ipcMain.handle('open-url', (_event, url: string, browserPath: string) => {
     if (browserPath) {
         // Use specified browser with spawn to avoid shell injection
         if (typeof browserPath !== 'string' || !fs.existsSync(browserPath)) {
-             console.error('Invalid browser path:', browserPath);
-             return false;
+            console.error('Invalid browser path:', browserPath);
+            return false;
         }
-        
+
         console.log(`[Main] Launching: ${browserPath} ${url}`);
         // spawn allows passing arguments as an array, avoiding shell interpretation
         const child = spawn(browserPath, [url], { detached: true, stdio: 'ignore' });

@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Site } from '../store/useAppStore'
-import { GripVertical, Trash2, Globe } from 'lucide-react'
+import { Trash2, Globe } from 'lucide-react'
 
 interface SiteCardProps {
     site: Site
