@@ -1,0 +1,74 @@
+[
+  {
+    "id": "17693437824950",
+    "name": "hqporner",
+    "urlTemplate": "https://hqporner.com/?q=[query]",
+    "joiner": "+",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824951",
+    "name": "erome",
+    "urlTemplate": "https://www.erome.com/search?q=[query]",
+    "joiner": "+",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824952",
+    "name": "sxyprn",
+    "urlTemplate": "https://www.sxyprn.com/[query].html",
+    "joiner": "-",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824953",
+    "name": "pornhub",
+    "urlTemplate": "https://www.pornhub.com/video/search?search=[query]",
+    "joiner": "+",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824954",
+    "name": "xvideos",
+    "urlTemplate": "https://www.xvideos.com/?k=[query]",
+    "joiner": "+",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824955",
+    "name": "eporner",
+    "urlTemplate": "https://www.eporner.com/search/[query]",
+    "joiner": "-",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824956",
+    "name": "Criollasx",
+    "urlTemplate": "https://criollasx.com/?s=[query]",
+    "joiner": "+",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824957",
+    "name": "Reddit",
+    "urlTemplate": "https://www.reddit.com/search/?q=[query]",
+    "joiner": "+",
+    "enabled": true,
+    "group": "General"
+  },
+  {
+    "id": "17693437824958",
+    "name": "Bunkr",
+    "urlTemplate": "https://bunkr-albums.io/?search=[query]",
+    "joiner": "%20",
+    "enabled": true,
+    "group": "General"
+  }
+]
